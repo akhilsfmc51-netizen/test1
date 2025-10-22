@@ -1,1 +1,36 @@
-# test1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead Application</title>
+</head>
+<body style="font-family: Arial; max-width: 500px; margin: 40px auto;">
+  <h2>Lead Application Form</h2>
+
+  <form name="leadForm" method="POST" data-netlify="true">
+    <label>First Name</label><br>
+    <input id="FirstName" name="FirstName" required><br><br>
+
+    <label>Last Name</label><br>
+    <input id="LastName" name="LastName" required><br><br>
+
+    <label>Email</label><br>
+    <input id="Email" name="Email" type="email" required><br><br>
+
+    <label>Coupon Code</label><br>
+    <input id="CouponCode" name="CouponCode" required><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Autofill fields from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('FirstName').value = urlParams.get('fname') || '';
+    document.getElementById('LastName').value = urlParams.get('lname') || '';
+    document.getElementById('Email').value = urlParams.get('email') || '';
+    document.getElementById('CouponCode').value = urlParams.get('coupon') || '';
+  </script>
+</body>
+</html>
